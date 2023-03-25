@@ -35,7 +35,7 @@
         {% for review in reviews %}
             <div class="card text-center me-2" style="width: 18rem;">
                 <div class="card-body">
-                    <h5 class="card-title">Author: {{ review.author }}</h5>
+                    <h5 class="card-title">Author: <a style="text-decoration: none" href="{% url 'profile' review.author.pk %}">{{ review.author }}</a></h5>
                     <p class="card-text">Review text: {{ review.text }}</p>
                     <p class="card-text">Author email: {{ review.author.email }}</p>
                     <h6>Rating: {{ review.rating }}</h6>
