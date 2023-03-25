@@ -4,7 +4,7 @@ from django.utils.http import urlencode
 from django.views.generic import TemplateView, DetailView, CreateView, UpdateView, DeleteView, ListView
 
 from reviewer.forms import ProductForm, SearchForm
-from reviewer.models import Product
+from reviewer.models import Product, Review
 
 
 class IndexView(ListView):
@@ -45,6 +45,21 @@ class IndexView(ListView):
 class ProductDetailView(DetailView):
     template_name = 'product_detail.html'
     model = Product
+
+    def get_context_data(self, **kwargs):
+        super().get_context_data(**kwargs)
+        reviews = Review.objects.all().filter(product=self.object.pk)
+        total_rating = 0
+        for review in reviews:
+            total_rating += review.rating
+        review_counter = len(reviews)
+        if review_counter == 0:
+            avarage = 0
+        else:
+            avarage = total_rating / review_counter
+        kwargs['reviews'] = reviews
+        kwargs['avarage'] = avarage
+        return super().get_context_data(**kwargs)
 
 
 class ProductCreateView(CreateView):

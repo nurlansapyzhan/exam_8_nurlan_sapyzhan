@@ -3,11 +3,11 @@
     Confirm delete page
 {% endblock %}
 {% block content %}
-    <h1>Delete {{ product.name }}?</h1>
+    <h1>Delete review?</h1>
     <div class="info_block">
-        <p class="info">Product name: {{ product.name }}</p>
-        <p class="info">Description: {{ product.description }}</p>
-        <form action="{% url 'confirm_delete' product.pk %}" method="post">
+        <p class="info">Review: {{ review.text }}</p>
+        <p class="info">Review author: {{ review.author.username }}</p>
+        <form action="{% url 'delete_review' review.pk %}" method="post">
             {% csrf_token %}
             <button type="submit" class="delete_button">Yes</button>
         </form>

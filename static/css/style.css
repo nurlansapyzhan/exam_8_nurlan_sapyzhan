@@ -8,7 +8,7 @@
 }
 
 input[type="text"],
-textarea {
+textarea, input[type="password"], input[type="email"] {
     background-color: whitesmoke;
     color: #6c757d;
     border: thick double #6c757d;
@@ -17,7 +17,7 @@ textarea {
 }
 
 input[type="text"]:focus,
-textarea:focus {
+textarea:focus, input[type="password"]:focus, input[type="email"]:focus {
     outline: none;
 }
 
@@ -45,7 +45,7 @@ button:hover {
     margin-top: 20px;
 }
 
-.delete_button{
+.delete_button {
     width: 92px;
 }
 
@@ -120,4 +120,11 @@ select {
     background-color: whitesmoke;
     border: thick double #6c757d;
     padding: 10px;
+}
+
+.logout_form {
+    background-color: #f8f9fa;
+    padding: 0;
+    width: 100px;
+    margin: 0;
 }

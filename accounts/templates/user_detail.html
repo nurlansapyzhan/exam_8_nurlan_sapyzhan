@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+{% block title %}User{% endblock %}
+{% block menu %}
+    <li><a href="{% url 'password_change' user_obj.pk %}" class="nav-link">Change password</a></li>
+{% endblock %}
+{% block content %}
+    <div class="card mt-3">
+        <h5 class="card-header">{{ user_obj.get_full_name|default:user_obj.username }}'s profile</h5>
+        <div class="card-body">
+            <h5 class="card-title">Username: {{ user_obj.username }}</h5>
+            <p class="card-text">First name: {{ user_obj.first_name }}</p>
+            <p class="card-text">Last name: {{ user_obj.last_name }}</p>
+            <p class="card-text">Email: {{ user_obj.email }}</p>
+            <a href="{% url 'change' user_obj.pk %}" class="btn btn-secondary">Edit profile</a>
+        </div>
+    </div>
+    <div class="row row-cols-1 row-cols-md-3 g-4 mt-2">
+        {% for review in reviews %}
+            <div class="card text-center me-2 mt-2" style="width: 18rem;">
+                <div class="card-body">
+                    <h5 class="card-title">Author: {{ review.author }}</h5>
+                    <p class="card-text">Product: {{ review.product.name }}</p>
+                    <p class="card-text">Review text: {{ review.text }}</p>
+                    <p class="card-text">Author email: {{ review.author.email }}</p>
+                    <h6>Rating: {{ review.rating }}</h6>
+                    <a href="{% url 'update_review' review.pk %}" class="btn btn-secondary">Update Review</a>
+                    <a href="{% url 'delete_review' review.pk %}" class="btn btn-secondary mt-3">Delete Review</a>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+{% endblock %}

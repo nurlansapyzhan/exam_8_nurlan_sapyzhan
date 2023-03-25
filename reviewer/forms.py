@@ -1,6 +1,6 @@
 from django import forms
 
-from reviewer.models import Product
+from reviewer.models import Product, Review
 
 
 class SearchForm(forms.Form):
@@ -23,4 +23,14 @@ class ProductForm(forms.ModelForm):
             'description': 'Description',
             'image': 'Image URL',
             'category': 'Category'
+        }
+
+
+class ReviewForm(forms.ModelForm):
+    class Meta:
+        model = Review
+        fields = ('text', 'rating')
+        labels = {
+            'text': 'Review text',
+            'rating': 'Rate product'
         }

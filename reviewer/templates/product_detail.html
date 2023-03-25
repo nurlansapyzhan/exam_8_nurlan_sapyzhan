@@ -22,10 +22,27 @@
                     <h5 class="card-title">Product: {{ product.name }}</h5>
                     <p class="card-text">Category: {{ product.category }}</p>
                     <p class="card-text">Description: {{ product.description }}</p>
+                    <p class="card-text">Avarage: {{ avarage }}</p>
                     <a href="{% url 'product_edit' product.pk %}" class="btn btn-secondary">Edit</a>
                     <a href="{% url 'product_delete' product.pk %}" class="btn btn-secondary">Delete</a>
+                    <a href="{% url 'add_review' product.pk %}" class="btn btn-secondary">Add review</a>
                 </div>
             </div>
         </div>
+    </div>
+    <h3>Reviews</h3>
+    <div class="row row-cols-1 row-cols-md-3 g-4 mt-2">
+        {% for review in reviews %}
+            <div class="card text-center me-2" style="width: 18rem;">
+                <div class="card-body">
+                    <h5 class="card-title">Author: {{ review.author }}</h5>
+                    <p class="card-text">Review text: {{ review.text }}</p>
+                    <p class="card-text">Author email: {{ review.author.email }}</p>
+                    <h6>Rating: {{ review.rating }}</h6>
+                    <a href="{% url 'update_review' review.pk %}" class="btn btn-secondary">Update Review</a>
+                    <a href="{% url 'delete_review' review.pk %}" class="btn btn-secondary mt-3">Delete Review</a>
+                </div>
+            </div>
+        {% endfor %}
     </div>
 {% endblock %}
