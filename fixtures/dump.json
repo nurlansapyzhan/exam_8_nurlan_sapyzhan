@@ -1,1 +1,92 @@
-[{"model": "reviewer.product", "pk": 1, "fields": {"name": "Some service", "category": "service", "description": "service", "image": "https://www.ncenet.com/wp-content/uploads/2020/04/no-image-png-2.png"}}, {"model": "reviewer.review", "pk": 1, "fields": {"author": 1, "product": 1, "text": "wow it's workin'", "rating": 5}}]
+[
+{
+  "model": "reviewer.product",
+  "pk": 9,
+  "fields": {
+    "name": "Web development",
+    "category": "service",
+    "description": "Web development with a lot of experience",
+    "image": "https://www.elegantthemes.com/blog/wp-content/uploads/2018/12/top11.png"
+  }
+},
+{
+  "model": "reviewer.product",
+  "pk": 10,
+  "fields": {
+    "name": "Backend developer",
+    "category": "service",
+    "description": "Backend Development with 10 years of experience",
+    "image": "https://s3.studytonight.com/curious/uploads/pictures/1631204081-106730.png"
+  }
+},
+{
+  "model": "reviewer.product",
+  "pk": 11,
+  "fields": {
+    "name": "Frontend developer",
+    "category": "service",
+    "description": "Frontend development",
+    "image": "https://www.trio.dev/hubfs/Imported_Blog_Media/263a75529a1752b75d64f9f21fd07c92-3-2.jpg"
+  }
+},
+{
+  "model": "reviewer.product",
+  "pk": 12,
+  "fields": {
+    "name": "AI Engeneer",
+    "category": "service",
+    "description": "AI Engeneering",
+    "image": "https://www.simplilearn.com/ice9/free_resources_article_thumb/How_to_Become_an_AI_Engineer.jpg"
+  }
+},
+{
+  "model": "reviewer.product",
+  "pk": 13,
+  "fields": {
+    "name": "DDR4 RAM",
+    "category": "product",
+    "description": "Brand new",
+    "image": "https://cdn.shopify.com/s/files/1/0402/9172/9566/products/Momement2400Ram_Long_580x.jpg?v=1603089355"
+  }
+},
+{
+  "model": "reviewer.product",
+  "pk": 14,
+  "fields": {
+    "name": "DDR3 RAM",
+    "category": "product",
+    "description": "Battle-Scarred",
+    "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQqcLQnFy4gLGEnI-uo-WUjIbmbOV0zJjeGwA&usqp=CAU"
+  }
+},
+{
+  "model": "reviewer.product",
+  "pk": 15,
+  "fields": {
+    "name": "Razer keyboard",
+    "category": "product",
+    "description": "Minimal Wear",
+    "image": "https://assets2.razerzone.com/images/pnx.assets/024e8e6610ecb3cfa151ac79f734e496/razer-ornata-v3-base.png"
+  }
+},
+{
+  "model": "reviewer.product",
+  "pk": 16,
+  "fields": {
+    "name": "Bucket",
+    "category": "other",
+    "description": "Well-Worn",
+    "image": "https://m.media-amazon.com/images/W/IMAGERENDERING_521856-T1/images/I/61DXNT2yFTL._SX425_.jpg"
+  }
+},
+{
+  "model": "reviewer.review",
+  "pk": 14,
+  "fields": {
+    "author": 3,
+    "product": 9,
+    "text": "My first review. Good product",
+    "rating": 5
+  }
+}
+]
