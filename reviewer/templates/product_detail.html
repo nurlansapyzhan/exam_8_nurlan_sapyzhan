@@ -3,7 +3,9 @@
     Product {{ product.name }}
 {% endblock %}
 {% block menu %}
-    <a class="nav-link" href="{% url 'add_product' %}">Add product</a>
+    {% if perms.product.add_product %}
+        <a href="{% url 'add_product' %}" class="nav-link">Add product</a>
+    {% endif %}
 {% endblock %}
 {% block content %}
     <div class="card mb-3 mt-2 pb-2 ps-2">
@@ -23,9 +25,15 @@
                     <p class="card-text">Category: {{ product.category }}</p>
                     <p class="card-text">Description: {{ product.description }}</p>
                     <p class="card-text">Avarage: {{ avarage }}</p>
-                    <a href="{% url 'product_edit' product.pk %}" class="btn btn-secondary">Edit</a>
-                    <a href="{% url 'product_delete' product.pk %}" class="btn btn-secondary">Delete</a>
-                    <a href="{% url 'add_review' product.pk %}" class="btn btn-secondary">Add review</a>
+                    {% if perms.product.change_product %}
+                        <a href="{% url 'product_edit' product.pk %}" class="btn btn-secondary">Edit</a>
+                    {% endif %}
+                    {% if perms.product.delete_product %}
+                        <a href="{% url 'product_delete' product.pk %}" class="btn btn-secondary">Delete</a>
+                    {% endif %}
+                    {% if user.is_authenticated %}
+                        <a href="{% url 'add_review' product.pk %}" class="btn btn-secondary">Add review</a>
+                    {% endif %}
                 </div>
             </div>
         </div>
@@ -35,12 +43,18 @@
         {% for review in reviews %}
             <div class="card text-center me-2" style="width: 18rem;">
                 <div class="card-body">
-                    <h5 class="card-title">Author: <a style="text-decoration: none" href="{% url 'profile' review.author.pk %}">{{ review.author }}</a></h5>
+                    <h5 class="card-title">Author: <a style="text-decoration: none"
+                                                      href="{% url 'profile' review.author.pk %}">{{ review.author }}</a>
+                    </h5>
                     <p class="card-text">Review text: {{ review.text }}</p>
                     <p class="card-text">Author email: {{ review.author.email }}</p>
                     <h6>Rating: {{ review.rating }}</h6>
-                    <a href="{% url 'update_review' review.pk %}" class="btn btn-secondary">Update Review</a>
-                    <a href="{% url 'delete_review' review.pk %}" class="btn btn-secondary mt-3">Delete Review</a>
+                    {% if perms.review.change_review or review.author == request.user %}
+                        <a href="{% url 'update_review' review.pk %}" class="btn btn-secondary">Update Review</a>
+                    {% endif %}
+                    {% if perms.review.delete_review or review.author == request.user %}
+                        <a href="{% url 'delete_review' review.pk %}" class="btn btn-secondary mt-3">Delete Review</a>
+                    {% endif %}
                 </div>
             </div>
         {% endfor %}
