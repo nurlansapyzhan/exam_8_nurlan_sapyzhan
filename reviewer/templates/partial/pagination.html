@@ -1,0 +1,24 @@
+<div class="pagination mt-2">
+    <span class="step-links">
+        <a href="?{% if query %}{{ query }}&{% endif %}page=1" class="btn-secondary">&laquo; Start</a>
+        {% if page_obj.has_previous %}
+            <a href="?{% if query %}{{ query }}&{% endif %}page={{ page_obj.previous_page_number }}"
+               class="btn-secondary">Back</a>
+        {% else %}
+            <span class="page-disabled">Back</span>
+        {% endif %}
+        <form class="current-page" method="get">
+            <label for="page">
+                {% if search %}<input type="hidden" name="search" value="{{ search }}">{% endif %}
+                Page <input type="text" name="page" id="page" value="{{ page_obj.number }}">
+                of {{ page_obj.paginator.num_pages }}
+            </label>
+        </form>
+        {% if page_obj.has_next %}
+            <a href="?{% if query %}{{ query }}&{% endif %}page={{ page_obj.next_page_number }}" class="btn-secondary">Next</a>
+        {% else %}
+            <span class="page-disabled">Next</span>
+        {% endif %}
+        <a href="?{% if query %}{{ query }}&{% endif %}page={{ page_obj.paginator.num_pages }}" class="btn-secondary">End &raquo;</a>
+    </span>
+</div>

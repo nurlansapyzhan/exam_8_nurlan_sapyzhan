@@ -1,0 +1,123 @@
+.product_image {
+    height: 360px;
+}
+
+.card_links {
+    text-decoration: none;
+    width: 25px;
+}
+
+input[type="text"],
+textarea {
+    background-color: whitesmoke;
+    color: #6c757d;
+    border: thick double #6c757d;
+    padding: 10px;
+    margin-bottom: 10px;
+}
+
+input[type="text"]:focus,
+textarea:focus {
+    outline: none;
+}
+
+label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+button {
+    background-color: #6c757d;
+    color: #fff;
+    border: thick double white;
+    padding: 10px;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+button:hover {
+    opacity: 0.8;
+}
+
+.cancel {
+    display: flex;
+    margin-top: 20px;
+}
+
+.delete_button{
+    width: 92px;
+}
+
+.cancel_button {
+    width: 92px;
+    background-color: #6c757d;
+    color: #fff;
+    border: thick double white;
+    padding: 10px;
+    cursor: pointer;
+    margin-top: 10px;
+    text-decoration: none;
+}
+
+.cancel_button:hover {
+    opacity: 0.8;
+    color: white;
+}
+
+.pagination {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+}
+
+.pagination a, .pagination .page-disabled {
+    display: inline-block;
+    border-radius: 3px;
+    padding: 5px;
+    margin: 3px;
+}
+
+.pagination a {
+    background: #6c757d;
+    color: white;
+    text-decoration: none;
+}
+
+.pagination a:hover {
+    background: #565e64;
+    text-decoration: none;
+}
+
+.pagination .page-disabled {
+    background: white;
+    color: #dddddd
+}
+
+.pagination .current-page {
+    display: inline-block;
+}
+
+.pagination .current-page input {
+    width: 50px;
+    padding: 5px 7px;
+    font-size: inherit;
+    border-radius: 5px;
+    text-align: center;
+    border: solid 1px gray;
+}
+
+.current-page {
+    background-color: white;
+}
+
+.search_form {
+    flex-direction: row;
+    background-color: white;
+}
+
+select {
+    background-color: whitesmoke;
+    border: thick double #6c757d;
+    padding: 10px;
+}

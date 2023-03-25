@@ -11,8 +11,7 @@ class Product(models.Model):
     name = models.CharField(max_length=48, null=False, verbose_name='Product')
     category = models.CharField(choices=CATEGORIES, verbose_name='Category', default='other', max_length=512)
     description = models.CharField(null=True, max_length=1024, verbose_name='Description', blank=True)
-    image = models.CharField(max_length=1024, null=True, verbose_name='Image',
-                             default='https://www.ncenet.com/wp-content/uploads/2020/04/no-image-png-2.png')
+    image = models.CharField(max_length=1024, null=True, verbose_name='Image')
 
     def __str__(self):
         return self.name

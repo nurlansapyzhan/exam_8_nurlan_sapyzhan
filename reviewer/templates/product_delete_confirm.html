@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+{% block header %}
+    <h1>Are you sure you want to delete {{ product.name }}?</h1>
+{% endblock %}
+{% block title %}
+    Confirm delete page
+{% endblock %}
+{% block content %}
+    <div class="info_block">
+        <p class="info">Product name: {{ product.name }}</p>
+        <p class="info">Description: {{ product.description }}</p>
+        <form action="{% url 'confirm_delete' product.pk %}" method="post">
+            {% csrf_token %}
+            <button type="submit" class="delete_button">Yes</button>
+        </form>
+        <div class="cancel">
+            <a href="{% url 'index' %}" class="cancel_button">No</a>
+        </div>
+    </div>
+{% endblock %}

@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+{% block title %}
+    Product {{ product.name }}
+{% endblock %}
+{% block menu %}
+    <a class="nav-link" href="{% url 'add_product' %}">Add product</a>
+{% endblock %}
+{% block content %}
+    <div class="card mb-3 mt-2 pb-2 ps-2">
+        <div class="row g-0">
+            <div class="col-md-4">
+                {% if not product.image %}
+                    <img src="https://www.ncenet.com/wp-content/uploads/2020/04/no-image-png-2.png"
+                         class="detail_img img-fluid rounded-start mt-2 product_image" alt="product">
+                {% else %}
+                    <img src="{{ product.image }}" class="detail_img img-fluid rounded-start mt-2 product_image"
+                         alt="product">
+                {% endif %}
+            </div>
+            <div class="col-md-8">
+                <div class="card-body">
+                    <h5 class="card-title">Product: {{ product.name }}</h5>
+                    <p class="card-text">Category: {{ product.category }}</p>
+                    <p class="card-text">Description: {{ product.description }}</p>
+                    <a href="{% url 'product_edit' product.pk %}" class="btn btn-secondary">Edit</a>
+                    <a href="{% url 'product_delete' product.pk %}" class="btn btn-secondary">Delete</a>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
