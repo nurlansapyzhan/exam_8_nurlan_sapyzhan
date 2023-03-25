@@ -1,0 +1,1 @@
+[{"model": "reviewer.product", "pk": 1, "fields": {"name": "Some service", "category": "service", "description": "service", "image": "https://www.ncenet.com/wp-content/uploads/2020/04/no-image-png-2.png"}}, {"model": "reviewer.review", "pk": 1, "fields": {"author": 1, "product": 1, "text": "wow it's workin'", "rating": 5}}]
